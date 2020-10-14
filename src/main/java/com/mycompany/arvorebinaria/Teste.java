@@ -5,6 +5,8 @@
  */
 package com.mycompany.arvorebinaria;
 
+import java.util.Scanner;
+
 /**
  *
  * @author yllan.gurgel
@@ -14,9 +16,11 @@ public class Teste {
     public static void main(String[] args) {
         
         ArvoreBinaria ab = new ArvoreBinaria();
-        ab.inserir(5);
-        ab.inserir(7);
-        ab.inserir(3);
+        Scanner leia = new Scanner(System.in);
+        
+        
+        System.out.println("Digite a quantidade de elementos da árvore: ");
+        int qtd = leia.nextInt();
         
         System.out.println(ab.getRaiz().getValor());
         

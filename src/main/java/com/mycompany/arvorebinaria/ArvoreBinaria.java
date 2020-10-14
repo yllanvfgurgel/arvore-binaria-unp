@@ -31,35 +31,38 @@ public class ArvoreBinaria {
         return (this.raiz == null);
     }
     
-    public No inserir(int valor) {
+    public void inserir(int valor) {
         
-        return inserir(new No(valor), this.getRaiz());
+        No n = new No(valor);
+        inserirArvore(n, this.getRaiz());
         
     }
     
-    public No inserir(No folha, No raizFolha) {
+    public void inserirArvore(No folha, No raizFolha) {
         
-        if(this.getRaiz() == null) {
+        if(raizFolha == null) {
             this.setRaiz(folha);
-            return folha;
         } 
             if(raizFolha != null) {
                 if(folha.getValor() < raizFolha.getValor()) {
-                    raizFolha.setEsquerda(inserir(folha, raizFolha.getEsquerda()));
-                } else {
-                    if (folha.getValor() > raizFolha.getValor()) {
-                        raizFolha.setDireita(inserir(folha, raizFolha.getDireita()));
+                    if(raizFolha.getEsquerda() == null) {
+                        raizFolha.setEsquerda(folha);
                     } else {
-                        return null;
+                        inserirArvore(folha, raizFolha.getEsquerda());
+                    }
+                } else {
+                    if(raizFolha.getDireita() == null) {
+                        raizFolha.setDireita(folha);
+                    } else {
+                        inserirArvore(folha, raizFolha.getDireita());
                     }
                 }
-            } else {
-                raizFolha = folha;
             }
-        
-       return folha;
-        
     }
+                        
+                        
+        
+        
     
     
 //    public int buscarNo(int valor) {
