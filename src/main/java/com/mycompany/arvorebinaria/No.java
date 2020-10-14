@@ -15,18 +15,13 @@ public class No {
     private No esquerda;
     private No direita;
     
-    public No(){
     
-    }
     
+
     public No(int valor) {
         this.valor = valor;
-    }
-
-    public No(int valor, No esquerda, No direita) {
-        this.valor = valor;
-        this.esquerda = esquerda;
-        this.direita = direita;
+        this.esquerda = null;
+        this.direita = null;
     }
     
     
